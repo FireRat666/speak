@@ -1,12 +1,18 @@
 {
-  "name": "Text-To-Speech",
+  "name": "tts-api",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "author": "THE BOSS9345",
+  "description": "Free, minimal, CORS-friendly Google Translate Text to Speech API with pitch and speed modifier using ffmpeg",
+  "author": "sglkc",
   "license": "MIT",
-    "dependencies": {
-    "gtts": "^0.2.1",
-    "openai": "^4.28.0"
+  "main": "api.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch-preserve-output --watch api.js",
+    "start": "node api.js"
+  },
+  "dependencies": {
+    "@sefinek/google-tts-api": "^2.1.5",
+    "fastify": "^4.28.1",
+    "fluent-ffmpeg": "^2.1.3"
   }
 }

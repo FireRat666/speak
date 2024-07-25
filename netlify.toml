@@ -1,0 +1,23 @@
+[build]
+  command = """
+  mkdir bin;
+  cd bin;
+  wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz;
+  tar xf ffmpeg-git-amd64-static.tar.xz;
+  mv ./**/ffmpeg ./**/ffprobe .;
+  rm -rf ffmpeg-git*;
+  """
+
+[build.environment]
+  FFMPEG_PATH = "/var/task/bin/ffmpeg"
+  FFPROBE_PATH = "/var/task/bin/ffprobe"
+
+[functions]
+  directory = "/functions"
+  included_files = [ "bin/*", "README.md" ]
+
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/netlify"
+  status = 200
+  force = true
